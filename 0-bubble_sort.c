@@ -8,10 +8,11 @@
  */
 void bubble_sort(int *array, size_t size)
 {
-	int i, j, tmp;
+	int i, j, tmp, flag;
 
 	j = 0;
 	i = size;
+	flag = 0;
 	if (array == NULL || size < 2)
 		return;
 	while (i > 0)
@@ -24,10 +25,13 @@ void bubble_sort(int *array, size_t size)
 				tmp = array[j + 1];
 				array[j + 1] = array[j];
 				array[j] = tmp;
+				flag = 1;
 				print_array(array, size);
 			}
 			j++;
 		}
 		i--;
+		if (flag == 0)
+			break;
 	}
 }
